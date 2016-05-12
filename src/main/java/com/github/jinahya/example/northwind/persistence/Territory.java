@@ -15,11 +15,10 @@
  */
 package com.github.jinahya.example.northwind.persistence;
 
-import java.io.Serializable;
-import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -29,42 +28,20 @@ import javax.validation.constraints.NotNull;
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
 @Entity
-@Table(name = "Products")
-public class Product implements Serializable {
-
-    private static final long serialVersionUID = -3569704047736087669L;
+@Table(name = "Territories")
+public class Territory {
 
     @Id
-    @Column(name = "ProductID")
-    private int productId;
-
-    @Column(name = "ProductName")
+    @Column(name = "TerritoryID")
     @NotNull
-    private String productName;
+    private Integer id;
 
-    @ManyToOne
-    @Column(name = "SupplierID")
-    private Supplier supplier;
+    @Column(name = "TerritoryDescription")
+    @NotNull
+    private String description;
 
-    @ManyToOne
-    @Column(name = "CategoryID")
-    private Category category;
-
-    @Column(name = "QuantityPerUnit")
-    private String quantityPerUnit;
-
-    @Column(name = "UnitPrice", precision = 10, scale = 4)
-    private BigDecimal unitPrice;
-
-    @Column(name = "UnitsInStock")
-    private Short unitsInStock;
-
-    @Column(name = "UnitsInOrder")
-    private Short unitsInOrder;
-
-    @Column(name = "ReorderLevel")
-    private Short reorderLevel;
-
-    @Column(name = "Discontinued")
-    private boolean dicontinued;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "RegionID", nullable = false, updatable = false)
+    @NotNull
+    private Region region;
 }

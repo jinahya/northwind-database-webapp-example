@@ -19,33 +19,17 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
 /**
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
 @Entity
-@Table(name = "Categories")
-public class Category implements Serializable {
-
-    private static final long serialVersionUID = 8250275259760776729L;
+@Table(name = "Empolyees")
+public class Employee implements Serializable {
 
     @Id
-    @Column(name = "CategoryID")
-    @NotNull
-    private Integer id;
-
-    @Column(name = "CategoryName", nullable = false)
-    @NotNull
-    private String name;
-
-    @Column(name = "Description")
-    private String description;
-
-    @Lob
-    @Column(name = "Picture")
-    private byte[] picture;
+    @Column(name = "EmployeeID")
+    private Integer employeeId;
 }

@@ -15,11 +15,9 @@
  */
 package com.github.jinahya.example.northwind.persistence;
 
-import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -28,24 +26,15 @@ import javax.validation.constraints.NotNull;
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
 @Entity
-@Table(name = "Categories")
-public class Category implements Serializable {
-
-    private static final long serialVersionUID = 8250275259760776729L;
+@Table(name = "Region")
+public class Region {
 
     @Id
-    @Column(name = "CategoryID")
+    @Column(name = "RegionID")
     @NotNull
-    private Integer id;
+    private Integer regionId;
 
-    @Column(name = "CategoryName", nullable = false)
+    @Column(name = "RegionDescription")
     @NotNull
-    private String name;
-
-    @Column(name = "Description")
-    private String description;
-
-    @Lob
-    @Column(name = "Picture")
-    private byte[] picture;
+    private String regionDescription;
 }
